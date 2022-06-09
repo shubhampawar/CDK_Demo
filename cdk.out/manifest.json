@@ -1,0 +1,138 @@
+{
+  "version": "19.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "cdk-demo.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "cdk-demo.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "cdk-demo": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "cdk-demo.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/1c04977dfe870ff301cd7a149526a47b2596ead1079353f4aa722826cf0080b3.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "cdk-demo.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "cdk-demo.assets"
+      ],
+      "metadata": {
+        "/cdk-demo/demo_lambda_role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "demolambdarole5F53DCF5"
+          }
+        ],
+        "/cdk-demo/demo_lambda/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "demolambda33423D94"
+          }
+        ],
+        "/cdk-demo/demo-s3-bucket-cdk/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "demos3bucketcdk14C22EF0"
+          }
+        ],
+        "/cdk-demo/demo-s3-bucket-cdk/Notifications/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "demos3bucketcdkNotificationsAD85EC72"
+          }
+        ],
+        "/cdk-demo/demo-s3-bucket-cdk/AllowBucketNotificationsTocdkdemodemolambda9B37C402": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "demos3bucketcdkAllowBucketNotificationsTocdkdemodemolambda9B37C40264D2C5E9"
+          }
+        ],
+        "/cdk-demo/BucketNotificationsHandler050a0587b7544547bf325f094a3db834/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC"
+          }
+        ],
+        "/cdk-demo/BucketNotificationsHandler050a0587b7544547bf325f094a3db834/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleDefaultPolicy2CF63D36"
+          }
+        ],
+        "/cdk-demo/BucketNotificationsHandler050a0587b7544547bf325f094a3db834/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BucketNotificationsHandler050a0587b7544547bf325f094a3db8347ECC3691"
+          }
+        ],
+        "/cdk-demo/Demo-Table": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "DemoTable0473527B"
+            }
+          }
+        ],
+        "/cdk-demo/Demo-Table/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DemoTable0473527B"
+          }
+        ],
+        "/cdk-demo/demo_lambda_policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "demolambdapolicy74D4D588"
+          }
+        ],
+        "/cdk-demo/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/cdk-demo/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/cdk-demo/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/cdk-demo/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "cdk-demo"
+    }
+  }
+}
