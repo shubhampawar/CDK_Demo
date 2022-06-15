@@ -69,6 +69,18 @@ At this point you can now synthesize the CloudFormation template for this code.
 ```
 $ cdk synth
 ```
+## Configure AWS credentials locally
+
+```
+aws configure
+```
+
+```
+AWS Access Key ID [****************6A4Y]:Required
+AWS Secret Access Key [****************1xmv]:Required
+Default region name [None]: optional (default is us-east-1)
+Default output format [None]:optional (default is text)
+```
 
 ## Build and Deploy
 
