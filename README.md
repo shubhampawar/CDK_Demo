@@ -7,15 +7,29 @@ AWS CDK DEMO
 The AWS Cloud Development Kit (AWS CDK) is an open-source software development framework to define your cloud application resources using familiar programming languages.
 
 ## Lambda-S3-Trigger
-When files are uploaded in S3 bucket it triggers a lambda function and file metadata(filename,bucketname) is written in dynamodb.
+When files/objects are uploaded in S3 bucket it triggers a lambda function and files metadata(filename,bucketname) is written to dynamodb table.
 
 <p align="center">
   <img src="https://github.com/shubhampawar/CDK_Demo/blob/main/cdk-demo.png" />
 </p>
 
-## Build and Deploy
 
-The `cdk.template.json` file tells the CDK Toolkit how to execute your app.
+
+## AWS CDK Toolkit setup
+
+Install the AWS CDK Toolkit. The toolkit is a command-line utility which allows you to work with CDK apps.
+The AWS CDK uses Node.js (>= 10.13.0, except for versions 13.0.0 - 13.6.0). A version in active long-term support (14.x at this writing) is recommended.
+
+Open a terminal session and run the following command:
+
+    $ npm install -g aws-cdk
+
+You can check the toolkit version:
+    
+    $ cdk --version
+
+    
+
 
 
 ### Python setup
@@ -56,7 +70,9 @@ At this point you can now synthesize the CloudFormation template for this code.
 $ cdk synth
 ```
 
-### CDK Deploy
+## Build and Deploy
+
+The `cdk.template.json` file tells the CDK Toolkit how to execute your app.
 
 With specific profile,
 ```
